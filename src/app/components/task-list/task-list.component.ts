@@ -25,10 +25,28 @@ export class TaskListComponent implements OnInit {
   }
 
   loadTasks() {
-    this.taskService.getTasks().subscribe(tasks => {
-      this.tasks.set(tasks);
-    });
+    // Mock data for StackBlitz demo
+    const mockTasks: Task[] = [
+      {
+        id: 1,
+        title: 'משימה ראשונה',
+        description: 'תיאור המשימה הראשונה',
+        priority: TaskPriority.High,
+        status: TaskStatus.InProgress,
+        dueDate: '2026-03-25'
+      },
+      {
+        id: 2,
+        title: 'משימה שנייה',
+        description: 'תיאור המשימה השנייה',
+        priority: TaskPriority.Medium,
+        status: TaskStatus.Pending,
+        dueDate: '2026-03-30'
+      }
+    ];
+    this.tasks.set(mockTasks);
   }
+
 
   editTask(task: Task) {
     // Set current task in service store
